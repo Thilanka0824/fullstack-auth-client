@@ -25,10 +25,14 @@ const HomePage = () => {
 
   return (
     <div className="homepage-main">
-      HomePage
-      <h1>Fullstack Auth Page</h1>
-      <h3>{message}</h3>
       
+      <h1>Auth Page</h1>
+      <img
+        className="homepage-image"
+        src="https://cdn.pixabay.com/photo/2013/07/12/14/10/padlock-147913_960_720.png"
+        alt="https://cdn.pixabay.com/photo/2017/07/14/13/39/padlock-2503865_960_720.png"
+      />
+      <h3>{message}</h3>
     </div>
   );
 };

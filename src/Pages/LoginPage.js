@@ -12,8 +12,8 @@ const LoginPage = () => {
   const navigate = useNavigate();
   return (
     <div className="login-main">
-      LoginPage
-      <h1>Fullstack Auth Login Page</h1>
+      {/* LoginPage */}
+      <h1>Login</h1>
       <div>
         <h3>{loginMessage}</h3>
         <label>Email: </label>
@@ -21,7 +21,7 @@ const LoginPage = () => {
         <input
           value={email}
           type="text"
-          placeholder="enter email"
+          // placeholder="enter email"
           autoComplete="email"
           onChange={(e) => {
             setEmail(e.target.value);
@@ -34,14 +34,14 @@ const LoginPage = () => {
           value={password}
           type="password"
           autoComplete="current-password"
-          placeholder="password"
+          // placeholder="password"
           onChange={(e) => {
             setPassword(e.target.value);
           }}
         ></input>
         <br />
         <br />
-        <button className="login-button"
+        <button className="sign-up-button"
           onClick={async () => {
             const loginResult = await auth.login(email, password);
 

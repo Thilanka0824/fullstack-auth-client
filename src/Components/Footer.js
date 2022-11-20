@@ -5,7 +5,7 @@ const currentYear = new Date().getFullYear();
 const Footer = () => {
   return (
     <footer className="footer">
-      <p>
+      <p className="copyright">
         {" "}
         <Link to="/">Home</Link> <Link to="/registration">Register</Link>{" "}
         <Link to="/login">Login</Link> copyright © {currentYear}{" "}

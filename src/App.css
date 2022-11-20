@@ -22,8 +22,8 @@ a:link {
   justify-content: center;
   align-items: center;
   border: 2px dotted rgb(231, 10, 10);
-  background-color: #505664;
-  color: white;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
   min-height: 100vh;
   /* width: 100 */
 
@@ -31,9 +31,9 @@ a:link {
 
 .nav-bar {
   display: flex;
-  border: 2px dashed greenyellow;
+  /* border: 2px dashed greenyellow; */
   align-items: center;
-  background: rgb(0, 0, 0);
+  background: rgb(114, 28, 243);
   margin-top: 0px;
   /* min-height: 100vh; */
   min-width: 100vw;
@@ -44,12 +44,13 @@ a:link {
   /* border: 2px solid white; */
   padding: 3px;
   margin: 10px;
-  color: rgb(99, 99, 251);
+  color: white;
   border-radius: 5px;
 }
 
 .nav-bar-item:hover {
-  color: greenyellow
+  color: black;
+
 }
 
 .nav-bar-user-display {
@@ -58,14 +59,18 @@ a:link {
   border: 2px dashed white;
 }
 
+.nav-bar button {
+  color: rgb(114, 28, 243);
 
+  background-color: white;
+}
 
 .login-main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 2px solid yellow;
+  /* border: 2px solid yellow; */
   border-radius: 20px;
   margin: 20px;
   padding: 20px;
@@ -74,61 +79,96 @@ a:link {
 }
 
 .login-main input {
-  border: 0px solid lightblue;
+  border: 1px solid black;
   margin: 1%;
   border-radius: 5px;
+  padding: 3px;
+  text-align: center;
+
 }
 
 .login-main button {
   border-radius: 5px;
+  color: white;
+  background-color: rgb(114, 28, 243);
 }
 
 .login-main button:hover {
-color:red
+  color: red
 }
+
 .registration-main {
   /* this is the div the button is in */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 2px solid yellow;
+  /* border: 2px solid yellow; */
   border-radius: 20px;
+  margin: 20px;
+  padding: 20px;
   height: 300px;
   flex: 1;
+}
+
+.registration-main input {
+  border: 1px solid black;
+  margin: 1%;
+  border-radius: 5px;
+  padding: 3px;
+  text-align: center;
+}
+
+.registration-main button {
+  border-radius: 5px;
+  color: white;
+  background-color: rgb(114, 28, 243);
 
 }
 
 .homepage-main {
-
   /* this is the div the button is in */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 2px solid yellow;
+  /* border: 2px solid yellow; */
   border-radius: 20px;
+  margin: 20px;
+  padding: 20px;
   height: 300px;
   flex: 1;
+}
 
+.homepage-image {
+  margin: 60px;
+  padding: 20px;
+  height: 400px
 }
 
 
 
 footer {
-  
-    /* border: 2px dashed greenyellow; */
-    align-items: center;
-    justify-content: center;
-    background: rgb(0, 0, 0);
-    margin-top: 10px;
-    max-height: 3.5vh;
-    min-width: 100vw;
-    padding: 5px;
-    font-size: smaller;
-    
+  /* border: 2px dashed greenyellow; */
+  align-items: center;
+  justify-content: center;
+  background: rgb(114, 28, 243);
+  margin-top: 10px;
+  max-height: 3.5vh;
+  min-width: 100vw;
+  padding: 5px;
+  font-size: smaller;
+
+}
+
+footer a {
+  color: white
 }
 
 footer a:hover {
-  color: greenyellow
+  color: black;
+}
+
+.copyright {
+  color: white
 }

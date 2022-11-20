@@ -36,7 +36,7 @@ const NavBar = () => {
       <h3>{console.log(auth.userEmail)}</h3>
         <h3 className="nav-bar-user-display">
           {auth.userEmail !== null || auth.userEmail > 0
-            ? `${auth.userEmail} `
+            ? `${auth.userEmail} is Logged in`
             : "please log in"}
         </h3>
       </div>

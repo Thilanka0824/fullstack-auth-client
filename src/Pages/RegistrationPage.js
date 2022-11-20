@@ -12,26 +12,28 @@ const RegistrationPage = () => {
   const navigate = useNavigate();
   return (
     <div className="registration-main">
-      Registration Page
-      <h1>Fullstack Auth Registration Page</h1>
+      {/* Registration Page */}
+      <h1>Register Here</h1>
       <div>
         <h3>{registerMessage}</h3>
 
         <label>Email: </label>
+        <br />
         <input
           value={email}
           type="text"
-          placeholder="email@here.com"
+          // placeholder="email@here.com"
           onChange={(e) => {
             setEmail(e.target.value);
           }}
         ></input>
         <br />
         <label>Password: </label>
+        <br />
         <input
           value={password}
           type="password"
-          placeholder="set password"
+          // placeholder="set password"
           autoComplete="current password"
           onChange={(e) => {
             setPassword(e.target.value);
@@ -41,6 +43,7 @@ const RegistrationPage = () => {
         <br />
         <br />
         <button
+          className="login-button"
           onClick={async () => {
             const registerResult = await auth.register(email, password);
             registerResult.success
