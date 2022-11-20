@@ -16,25 +16,27 @@ const LoginPage = () => {
       <h1>Login</h1>
       <div>
         <h3>{loginMessage}</h3>
-        <label>Email: </label>
+        {/* <label>Email: </label> */}
+        <br/>
+        <br/>
         <br/>
         <input
           value={email}
           type="text"
-          // placeholder="enter email"
+          placeholder="email"
           autoComplete="email"
           onChange={(e) => {
             setEmail(e.target.value);
           }}
         ></input>
-        <br />
-        <label>Password: </label>
+        {/* <br /> */}
+        {/* <label>Password: </label> */}
         <br/>
         <input
           value={password}
           type="password"
           autoComplete="current-password"
-          // placeholder="password"
+          placeholder="password"
           onChange={(e) => {
             setPassword(e.target.value);
           }}

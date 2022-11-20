@@ -19,24 +19,30 @@ const NavBar = () => {
         <Link className="nav-bar-item" to="login">
           Login
         </Link>
+        <p className="nav-bar-logout-button">
+          {auth.userEmail !== null && auth.userEmail.length > 0 ? (
+            <button
+              id=""
+              onClick={(e) => {
+                auth.logout();
+                navigate("/login");
+              }}
+            >
+              Logout
+            </button>
+          ) : (
+            ""
+          )}
+        </p>
 
-        <button
-          className="nav-bar-item"
-          onClick={(e) => {
-            auth.logout();
-            navigate("/login");
-          }}
-        >
-          Logout
-        </button>
         <br />
       </div>
 
       <div>
-      <h3>{console.log(auth.userEmail)}</h3>
+        <h3>{console.log(auth.userEmail)}</h3>
         <h3 className="nav-bar-user-display">
-          {auth.userEmail !== null || auth.userEmail > 0
-            ? `${auth.userEmail} is Logged in`
+          {auth.userEmail !== null && auth.userEmail.length > 0
+            ? `${auth.userEmail} is logged in`
             : "please log in"}
         </h3>
       </div>
