@@ -30,6 +30,8 @@ export const AuthProvider = ({ children }) => {
 
   // call this function when you want to authenticate the user
   const login = async (email, password) => {
+    console.log(email)
+    console.log(password)
     setIsAuthLoading(true);
     const loginResult = await loginUser(email, password);
     if (loginResult.success) {
@@ -42,10 +44,11 @@ export const AuthProvider = ({ children }) => {
   // call this function to sign out logged in user
   const logout = async () => {
     setIsAuthLoading(true);
-    await removeLSUserData(); // This has to be awaited for the useEffect to work
+    const removeData = await removeLSUserData(); // This has to be awaited for the useEffect to work
     setUserToken(null);
     setUserEmail("");
     setIsAuthLoading(false);
+    return removeData;
   };
 
   /*  
@@ -67,6 +70,7 @@ export const AuthProvider = ({ children }) => {
 };
 
 export const useAuth = () => {
+  // console.log("hello");
   return useContext(AuthContext);
 };
 

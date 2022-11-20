@@ -1,20 +1,20 @@
 import React from "react";
 import { useState } from "react";
- import { useAuth } from "../Hooks/auth"
- import { useNavigate } from "react-router-dom"
+import { useAuth } from "../Hooks/Auth";
+import { useNavigate } from "react-router-dom";
 
 const RegistrationPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [registerMessage, setRegisterMessage] = useState("")
+  const [registerMessage, setRegisterMessage] = useState("");
 
   const auth = useAuth();
   const navigate = useNavigate();
   return (
-    <div>
+    <div className="registration-main">
       Registration Page
       <h1>Fullstack Auth Registration Page</h1>
-      <form>
+      <div>
         <h3>{registerMessage}</h3>
 
         <label>Email: </label>
@@ -38,14 +38,20 @@ const RegistrationPage = () => {
           }}
         ></input>
 
-    <br/>
-    <br/>
-    <button onClick={async () => {
-        const registerResult = await auth.register(email, password)
-        registerResult.success ? navigate("/login") : setRegisterMessage(registerResult.message)
-    }}>Sign Up</button>
-    <br/>
-      </form>
+        <br />
+        <br />
+        <button
+          onClick={async () => {
+            const registerResult = await auth.register(email, password);
+            registerResult.success
+              ? navigate("/login")
+              : setRegisterMessage(registerResult.message);
+          }}
+        >
+          Sign Up
+        </button>
+        <br />
+      </div>
     </div>
   );
 };
