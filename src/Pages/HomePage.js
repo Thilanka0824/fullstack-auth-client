@@ -3,7 +3,7 @@ import { useAuth } from "../Hooks/Auth";
 
 const urlEndpoint = process.env.REACT_APP_URL_ENDPOINT;
 
-const HomePage = () => {
+const HomePage = ({isLoggedIn}) => {
   const [message, setMessage] = useState("");
 
   const auth = useAuth();

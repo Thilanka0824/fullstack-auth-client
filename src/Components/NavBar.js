@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../Hooks/Auth";
 import { useNavigate } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = ({}) => {
   const auth = useAuth();
   const navigate = useNavigate();
   console.log(auth);
@@ -16,9 +16,13 @@ const NavBar = () => {
         <Link className="nav-bar-item" to="/registration">
           Registration
         </Link>
+
+        {/* {auth.userEmail !== null < 0 ? ( */}
         <Link className="nav-bar-item" to="login">
           Login
         </Link>
+        {/* ) : ("")} */}
+
         <p className="nav-bar-logout-button">
           {auth.userEmail !== null && auth.userEmail.length > 0 ? (
             <button

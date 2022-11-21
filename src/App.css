@@ -43,27 +43,39 @@ a:link {
 
 .nav-bar-item {
   /* border: 2px solid white; */
-  padding: 3px;
+  padding: 2px;
   margin: 10px;
   color: white;
   border-radius: 5px;
+  /* border: 1px solid white */
 }
 
 .nav-bar-item:hover {
   color: black;
+  /* border: 1px solid white; */
+  /* background-color: white; */
 
 }
 
-.nav-bar-logout-button {
-  /* display: flex; */
-  /* border: 2px solid white; */
+.nav-bar-lock-icon{
+  /* display:flex; */
+  /* justify-content: center;
+  align-items: center; */
+  border: 2px solid white;
   
 }
+
+/* .nav-bar-logout-button {
+  display: flex;
+  border: 2px solid white;
+  
+} */
 
 .nav-bar-user-display {
   display: flex;
   justify-content: center;
   border-radius: 10px;
+  padding:4px;
   margin-left: 20px;
   margin-right: 20px;
   border: 1px solid rgb(114, 28, 243);
@@ -101,12 +113,16 @@ a:link {
 
 .login-main button {
   border-radius: 5px;
+  padding: 5px 10px 5px 10px;
   color: white;
   background-color: rgb(114, 28, 243);
+  border: 1px solid white;
 }
 
 .login-main button:hover {
-  color: red
+  color: black;
+  background-color: white;
+  border: 1px solid rgb(114, 28, 243);
 }
 
 .registration-main {
@@ -132,10 +148,17 @@ a:link {
 }
 
 .registration-main button {
-  border-radius: 5px;
+border-radius: 5px;
+  padding: 5px 10px 5px 10px;
   color: white;
   background-color: rgb(114, 28, 243);
+  border: 1px solid white;
+}
 
+.registration-main button:hover {
+  color: black;
+  background-color: white;
+  border: 1px solid rgb(114, 28, 243);
 }
 
 .homepage-main {
