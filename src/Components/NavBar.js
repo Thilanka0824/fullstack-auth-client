@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../Hooks/Auth";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
-
 const NavBar = ({}) => {
   const auth = useAuth();
   const navigate = useNavigate();
@@ -52,7 +51,7 @@ const NavBar = ({}) => {
         <h3>{console.log(auth.userEmail)}</h3>
         <h3 className="nav-bar-user-display">
           {auth.userEmail !== null && auth.userEmail.length > 0
-            ? `${auth.userEmail} is logged in`
+            ? `${auth.username} is logged in`
             : "please log in"}
         </h3>
       </div>
