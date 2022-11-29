@@ -13,15 +13,15 @@ const urlEndpoint = process.env.REACT_APP_URL_ENDPOINT;
 function App() {
   const [cartList, setCartList] = useState([]);
 
-  useEffect(()=>{
-    const fetchItems = async () => {
-      const result = await fetch(`${urlEndpoint}/items/all`)
-      const fetchedItems = await result.json();
-      setCartList(fetchedItems.item)
-      console.log(fetchedItems)
-    }
-    fetchItems()
-  }, [cartList])
+  // useEffect(()=>{
+  //   const fetchItems = async () => {
+  //     const result = await fetch(`${urlEndpoint}/items/all`)
+  //     const fetchedItems = await result.json();
+  //     setCartList(fetchedItems.item)
+  //     console.log(fetchedItems)
+  //   }
+  //   fetchItems()
+  // }, [cartList])
 
   
 
