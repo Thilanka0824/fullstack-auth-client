@@ -17,11 +17,9 @@ const NavBar = ({}) => {
           Registration
         </Link>
 
-        {/* {auth.userEmail !== null < 0 ? ( */}
-        <Link className="nav-bar-item" to="login">
-          Login
-        </Link>
-        {/* ) : ("")} */}
+        {/* {auth.userEmail === undefined ? (
+        
+        ) : ("")} */}
 
         <p className="nav-bar-logout-button">
           {auth.userEmail !== null && auth.userEmail.length > 0 ? (
@@ -35,9 +33,16 @@ const NavBar = ({}) => {
               Logout
             </button>
           ) : (
-            ""
+            <Link className="nav-bar-item" to="login">
+              Login
+            </Link>
           )}
         </p>
+        <div>
+          <Link className="nav-bar-item" to="/cartpage">
+            Cart
+          </Link>
+        </div>
 
         <br />
       </div>

@@ -49,6 +49,15 @@ a:link {
   border-radius: 5px;
   /* border: 1px solid white */
 }
+.nav-bar-item-cart {
+  /* border: 2px solid white; */
+  justify-content: f;
+  padding: 2px;
+  margin: 10px;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid white
+}
 
 .nav-bar-item:hover {
   color: black;
@@ -181,7 +190,19 @@ border-radius: 5px;
   height: 400px
 }
 
-
+.cartpage-main {
+  /* this is the div the button is in */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 2px solid yellow; */
+  border-radius: 20px;
+  margin: 20px;
+  padding: 20px;
+  height: 300px;
+  flex: 1;
+}
 
 footer {
   /* border: 2px dashed greenyellow; */

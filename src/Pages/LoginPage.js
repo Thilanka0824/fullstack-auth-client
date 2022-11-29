@@ -7,7 +7,7 @@ const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginMessage, setLoginMessage] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState("")
+  // const [isLoggedIn, setIsLoggedIn] = useState("")
 
   const auth = useAuth();
   const navigate = useNavigate();
@@ -49,17 +49,17 @@ const LoginPage = () => {
           onClick={async () => {
             const loginResult = await auth.login(email, password);
 
-            if(loginResult.success){
-              setIsLoggedIn(true) //why isnt this setting the variable to true?
-              console.log(isLoggedIn)
-              navigate("/")
-            } else {
-              setLoginMessage(loginResult.message)
-            }
+            // if(loginResult.success){
+            //   // setIsLoggedIn(true) //why isnt this setting the variable to true?
+            //   // console.log(isLoggedIn)
+            //   navigate("/")
+            // } else {
+            //   setLoginMessage(loginResult.message)
+            // }
 
-            // loginResult.success
-            //   ? navigate("/")
-            //   : setLoginMessage(loginResult.message);
+            loginResult.success
+              ? navigate("/")
+              : setLoginMessage(loginResult.message);
           }}
         >
           Login

@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 const RegistrationPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
   // const [confirmPass, setConfirmPass] = useState("")
   const [registerMessage, setRegisterMessage] = useState("");
 
@@ -22,6 +23,15 @@ const RegistrationPage = () => {
         <br />
         <br />
         <br />
+        <input
+          value={username}
+          type="text"
+          placeholder="username"
+          onChange={(e) => {
+            setUsername(e.target.value);
+          }}
+        ></input>
+        <br/>
         <input
           value={email}
           type="text"
@@ -59,13 +69,10 @@ const RegistrationPage = () => {
         <button
           className="login-button"
           onClick={async () => {
-          
-            const registerResult = await auth.register(email, password);
+            const registerResult = await auth.register(email, password, username);
             registerResult.success
               ? navigate("/login")
               : setRegisterMessage(registerResult.message);
-
-            
           }}
         >
           Sign Up

@@ -8,6 +8,7 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [userToken, setUserToken] = useState(null);
   const [userEmail, setUserEmail] = useState("");
+  const [username, setUsername] = useState("")
   const [isAuthLoading, setIsAuthLoading] = useState(false);
 
   useEffect(() => {
@@ -17,13 +18,17 @@ export const AuthProvider = ({ children }) => {
     }
     if (userData && userData.email) {
       setUserEmail(userData.email);
+      // setUsername(userData.username)
+    }
+    if (userData && userData.username) {
+      setUsername(userData.username)
     }
   }, [isAuthLoading]);
 
   // call this function when you want to register the user
-  const register = async (email, password) => {
+  const register = async (email, password, username) => {
     setIsAuthLoading(true);
-    const registerResult = await registerUser(email, password);
+    const registerResult = await registerUser(email, password, username);
     setIsAuthLoading(false);
     return registerResult;
   };
@@ -35,7 +40,7 @@ export const AuthProvider = ({ children }) => {
     setIsAuthLoading(true);
     const loginResult = await loginUser(email, password);
     if (loginResult.success) {
-      setLSUserData(loginResult.token, loginResult.email);
+      setLSUserData(loginResult.token, loginResult.email, loginResult.username);
     }
     setIsAuthLoading(false);
     return loginResult;
@@ -60,6 +65,7 @@ export const AuthProvider = ({ children }) => {
     () => ({
       userToken,
       userEmail,
+      username,
       login,
       logout,
       register,
@@ -74,7 +80,7 @@ export const useAuth = () => {
   return useContext(AuthContext);
 };
 
-const registerUser = async (email, password) => {
+const registerUser = async (email, password, username) => {
   const url = `${urlEndpoint}/users/register`;
   const response = await fetch(url, {
     method: "POST",
@@ -82,6 +88,7 @@ const registerUser = async (email, password) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
+      username,
       email,
       password,
     }),
@@ -106,10 +113,10 @@ const loginUser = async (email, password) => {
   return responseJSON;
 };
 
-const setLSUserData = (token, email) => {
+const setLSUserData = (token, email, username) => {
   localStorage.setItem(
     process.env.REACT_APP_TOKEN_HEADER_KEY,
-    JSON.stringify({ token, email })
+    JSON.stringify({ token, email, username })
   );
 };
 
