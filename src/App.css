@@ -51,12 +51,13 @@ a:link {
 }
 .nav-bar-item-cart {
   /* border: 2px solid white; */
-  justify-content: f;
+  /* justify-content:; */
+  /* align-items:; */
   padding: 2px;
   margin: 10px;
   color: white;
   border-radius: 5px;
-  border: 1px solid white
+  /* border: 1px solid white */
 }
 
 .nav-bar-item:hover {

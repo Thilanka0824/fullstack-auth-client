@@ -1,7 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../Hooks/Auth";
-import {IoCartOutline} from "react-icons/ai"
+import { AiOutlineShoppingCart } from "react-icons/ai";
+
 
 const NavBar = ({}) => {
   const auth = useAuth();
@@ -39,8 +40,8 @@ const NavBar = ({}) => {
           )}
         </p>
         <div>
-          <Link className="nav-bar-item" to="/cartpage">
-            Cart
+          <Link className="nav-bar-item-cart" to="/cartpage">
+            <AiOutlineShoppingCart size={28} />
           </Link>
         </div>
 
