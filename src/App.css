@@ -1,3 +1,4 @@
+
 * {
   box-sizing: border-box
 }
@@ -203,6 +204,19 @@ border-radius: 5px;
   padding: 20px;
   height: 300px;
   flex: 1;
+}
+
+.item-display-card {
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    margin: 20px;
+    padding: 20px;
+    height: 300px;
+    flex: 1;
 }
 
 footer {

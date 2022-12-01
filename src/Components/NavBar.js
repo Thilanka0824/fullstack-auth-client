@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../Hooks/Auth";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
-const NavBar = ({}) => {
+const NavBar = () => {
   const auth = useAuth();
   const navigate = useNavigate();
   console.log(auth);
@@ -13,6 +13,7 @@ const NavBar = ({}) => {
         <Link className="nav-bar-item" to="/">
           Home
         </Link>
+        <Link className="nav-bar-item" to="/display">Display</Link>
         <Link className="nav-bar-item" to="/registration">
           Registration
         </Link>

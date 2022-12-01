@@ -1,28 +1,48 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
+// import './AppGrid.css'
+import { useState, useEffect } from "react";
 import GlobalLayout from './Layouts/GlobalLayout';
 import ErrorPage from './Pages/ErrorPage';
 import HomePage from './Pages/HomePage';
 import LoginPage from './Pages/LoginPage';
 import RegistrationPage from './Pages/RegistrationPage';
 import CartPage from './Pages/CartPage';
-import { useState, useEffect } from 'react';
+import ItemDisplayPage from './Pages/ItemDisplayPage';
+
 
 const urlEndpoint = process.env.REACT_APP_URL_ENDPOINT;
 
 function App() {
-  const [cartList, setCartList] = useState([]);
+  const [itemList, setItemList] = useState([]);
+  const [shoppingCartItems, setShoppingCartItems] = useState([])
+  // const [title, setTitle] = useState('')
+  // const [description, setDescription] = useState('')
+  // const [price, setPrice] = useState('')
 
   useEffect(()=>{
     const fetchItems = async () => {
       const result = await fetch(`${urlEndpoint}/items/all`)
       const fetchedItems = await result.json();
-      setCartList(fetchedItems.item)
+      setItemList(fetchedItems.item)
       console.log(fetchedItems)
     }
     fetchItems()
   }, [])
 
+  const handleAddCartItem = (item) => { //item is the object that will be created.
+    const newCartItem = {
+      ...item,
+      // title,
+      // description,
+      // price
+      
+
+    }
+    setShoppingCartItems([...shoppingCartItems, item])
+   
+  }
+ console.log(shoppingCartItems);
   
 
   const router = createBrowserRouter([
@@ -40,12 +60,16 @@ function App() {
           element: <LoginPage />,
         },
         {
+          path: "/display",
+          element: <ItemDisplayPage itemList={itemList} urlEndpoint={urlEndpoint} handleAddCartItem={handleAddCartItem}/>,
+        },
+        {
           path: "/registration",
           element: <RegistrationPage />,
         },
         {
           path: "/cartpage",
-          element: <CartPage cartList={cartList} urlEndpoint={urlEndpoint}/>,
+          element: <CartPage itemList={itemList} urlEndpoint={urlEndpoint}/>,
         }
       ]
     }

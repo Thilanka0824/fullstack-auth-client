@@ -8,7 +8,7 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [userToken, setUserToken] = useState(null);
   const [userEmail, setUserEmail] = useState("");
-  const [username, setUsername] = useState("")
+  const [username, setUsername] = useState("");
   const [isAuthLoading, setIsAuthLoading] = useState(false);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
       // setUsername(userData.username)
     }
     if (userData && userData.username) {
-      setUsername(userData.username)
+      setUsername(userData.username);
     }
   }, [isAuthLoading]);
 
@@ -35,8 +35,8 @@ export const AuthProvider = ({ children }) => {
 
   // call this function when you want to authenticate the user
   const login = async (email, password) => {
-    console.log(email)
-    console.log(password)
+    console.log(email);
+    console.log(password);
     setIsAuthLoading(true);
     const loginResult = await loginUser(email, password);
     if (loginResult.success) {
@@ -70,7 +70,7 @@ export const AuthProvider = ({ children }) => {
       logout,
       register,
     }),
-    [userToken, userEmail]
+    [userToken, userEmail, username]
   );
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
