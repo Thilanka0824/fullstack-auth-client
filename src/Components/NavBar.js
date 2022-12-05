@@ -3,17 +3,23 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../Hooks/Auth";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
+
 const NavBar = () => {
   const auth = useAuth();
   const navigate = useNavigate();
   console.log(auth);
   return (
-    <div>
+    <nav>
       <div className="nav-bar">
         <Link className="nav-bar-item" to="/">
           Home
         </Link>
-        <Link className="nav-bar-item" to="/display">Display</Link>
+        <Link className="nav-bar-item" to="/profile">
+          Profile
+        </Link>
+        <Link className="nav-bar-item" to="/display">
+          Display
+        </Link>
         <Link className="nav-bar-item" to="/registration">
           Registration
         </Link>
@@ -43,6 +49,8 @@ const NavBar = () => {
           <Link className="nav-bar-item-cart" to="/cartpage">
             <AiOutlineShoppingCart size={28} />
           </Link>
+
+          
         </div>
 
         <br />
@@ -56,7 +64,7 @@ const NavBar = () => {
             : "please log in"}
         </h3>
       </div>
-    </div>
+    </nav>
   );
 };
 

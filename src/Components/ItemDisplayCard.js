@@ -1,15 +1,15 @@
 import React from "react";
 import Rating from "./Rating";
 
-
 const ItemDisplayCard = (props) => {
-    const {handleAddCartItem, item} = props
+  const { handleAddCartItem, item } = props;
+
   return (
     <div className="item-display-card">
       <h2>{item.title}</h2>
       <p>{item.description}</p>
       <h6>Rated {item.rating}</h6>
-      <br/>
+      <br />
       <h4>${item.price}</h4>
 
       {/* <div className="item-display-rating">

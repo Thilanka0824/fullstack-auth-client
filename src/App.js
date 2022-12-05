@@ -1,49 +1,59 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import './App.css';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./App.css";
 // import './AppGrid.css'
 import { useState, useEffect } from "react";
-import GlobalLayout from './Layouts/GlobalLayout';
-import ErrorPage from './Pages/ErrorPage';
-import HomePage from './Pages/HomePage';
-import LoginPage from './Pages/LoginPage';
-import RegistrationPage from './Pages/RegistrationPage';
-import CartPage from './Pages/CartPage';
-import ItemDisplayPage from './Pages/ItemDisplayPage';
+import GlobalLayout from "./Layouts/GlobalLayout";
+import ErrorPage from "./Pages/ErrorPage";
+import HomePage from "./Pages/HomePage";
+import LoginPage from "./Pages/LoginPage";
+import RegistrationPage from "./Pages/RegistrationPage";
+import CartPage from "./Pages/CartPage";
+import ItemDisplayPage from "./Pages/ItemDisplayPage";
+import ProfilePage from "./Pages/ProfilePage";
 
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 const urlEndpoint = process.env.REACT_APP_URL_ENDPOINT;
 
 function App() {
   const [itemList, setItemList] = useState([]);
-  const [shoppingCartItems, setShoppingCartItems] = useState([])
+  const [shoppingCartItems, setShoppingCartItems] = useState([]);
   // const [title, setTitle] = useState('')
   // const [description, setDescription] = useState('')
   // const [price, setPrice] = useState('')
 
-  useEffect(()=>{
+  useEffect(() => {
     const fetchItems = async () => {
-      const result = await fetch(`${urlEndpoint}/items/all`)
+      const result = await fetch(`${urlEndpoint}/items/all`);
       const fetchedItems = await result.json();
-      setItemList(fetchedItems.item)
-      console.log(fetchedItems)
-    }
-    fetchItems()
-  }, [])
+      setItemList(fetchedItems.item);
+      console.log(fetchedItems);
+    };
+    fetchItems();
+  }, []);
 
-  const handleAddCartItem = (item) => { //item is the object that will be created.
-    const newCartItem = {
-      ...item,
-      // title,
-      // description,
-      // price
-      
+  const handleAddCartItem = (item) => {
+    //item is the object that will be created.
+    const findingIndex = shoppingCartItems.findIndex((currentItem) => {
+      console.log(currentItem)
+      return currentItem._id === item._id; 
+    });
+    console.log(findingIndex)
+    if (findingIndex === -1) { //if item is not in shoppingCartItems
+      setShoppingCartItems([...shoppingCartItems, { ...item, cartCount: 1 }]);
+    } else {
+      const updateCartItem = shoppingCartItems.map((cartItem)=>{
+        if(cartItem._id === item._id){ //if cartItem is the same as item.id
+          cartItem.cartCount++
+          return cartItem
+        } else {
+          return cartItem
+        }
 
+      })
+      setShoppingCartItems(updateCartItem)
     }
-    setShoppingCartItems([...shoppingCartItems, item])
-   
-  }
- console.log(shoppingCartItems);
-  
+  };
 
   const router = createBrowserRouter([
     {
@@ -61,7 +71,17 @@ function App() {
         },
         {
           path: "/display",
-          element: <ItemDisplayPage itemList={itemList} urlEndpoint={urlEndpoint} handleAddCartItem={handleAddCartItem}/>,
+          element: (
+            <ItemDisplayPage
+              itemList={itemList}
+              urlEndpoint={urlEndpoint}
+              handleAddCartItem={handleAddCartItem}
+            />
+          ),
+        },
+        {
+          path: "/profile",
+          element: <ProfilePage />,
         },
         {
           path: "/registration",
@@ -69,16 +89,23 @@ function App() {
         },
         {
           path: "/cartpage",
-          element: <CartPage itemList={itemList} urlEndpoint={urlEndpoint}/>,
-        }
-      ]
-    }
-  ])
+          element: (
+            <CartPage
+              itemList={itemList}
+              urlEndpoint={urlEndpoint}
+              cartList={shoppingCartItems}
+            />
+          ),
+        },
+      ],
+    },
+  ]);
 
   return (
     <div className="App">
       <header className="App-header">
         <RouterProvider router={router} />
+
         {/* All router objects are passed to this component to render your app and enable the rest of the APIs. */}
       </header>
     </div>
