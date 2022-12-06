@@ -1,35 +1,33 @@
-import React from 'react'
-import { useState } from 'react';
+// import React from "react";
+// import { useState } from "react";
 
-const Counter = ({item}) => {
-    const [count, setCount] = useState(item.cartCount);
+// const Counter = ({ item }) => {
+//   const [count, setCount] = useState(item.cartCount);
 
+//   return (
+//     <div>
+//       <h1>{count}</h1>
+//       {/* <button
+//         className="cart-count-button"
+//         onClick={() => {
+//           setCount(count + 1);
+//         }}
+//       >
+//         plus
+//       </button>
 
+//       <button
+//         className="cart-count-button"
+//         onClick={() => {
+//           setCount(count - 1);
+//         }}
+//       >
+//         minus
+//       </button> */}
 
-  return (
-    <div>
-      <button
-        className="cart-count-button"
-        onClick={() => {
-          setCount(count + 1);
-          
-        }}
-      >
-        plus
-      </button>
-      <h1>{count}</h1>
-      <button
-        className="cart-count-button"
-        onClick={() => {
-          setCount(count - 1);
-        }}
-      >
-        minus
-      </button>
+//       {}
+//     </div>
+//   );
+// };
 
-      {}
-    </div>
-  );
-}
-
-export default Counter
+// export default Counter;

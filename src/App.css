@@ -204,6 +204,19 @@ border-radius: 5px;
     height: 300px;
     flex: 1;
 }
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgb(71, 71, 71);
+  border-radius: 20px;
+  margin: 20px;
+  padding: 20px;
+  height: 300px;
+  flex: 1;
+}
 .cartpage-main {
   /* this is the div the button is in */
   display: flex;

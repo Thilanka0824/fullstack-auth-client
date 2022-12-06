@@ -18,6 +18,8 @@ const urlEndpoint = process.env.REACT_APP_URL_ENDPOINT;
 function App() {
   const [itemList, setItemList] = useState([]);
   const [shoppingCartItems, setShoppingCartItems] = useState([]);
+  const [total, setTotal] = useState(0);
+ 
   // const [title, setTitle] = useState('')
   // const [description, setDescription] = useState('')
   // const [price, setPrice] = useState('')
@@ -34,12 +36,13 @@ function App() {
 
   const handleAddCartItem = (item) => {
     //item is the object that will be created.
-    const findingIndex = shoppingCartItems.findIndex((currentItem) => {
+    const foundIndex = shoppingCartItems.findIndex((currentItem) => {
       console.log(currentItem)
       return currentItem._id === item._id; 
     });
-    console.log(findingIndex)
-    if (findingIndex === -1) { //if item is not in shoppingCartItems
+
+    console.log(foundIndex)
+    if (foundIndex === -1) { //if item is not in shoppingCartItems
       setShoppingCartItems([...shoppingCartItems, { ...item, cartCount: 1 }]);
     } else {
       const updateCartItem = shoppingCartItems.map((cartItem)=>{
@@ -54,6 +57,7 @@ function App() {
       setShoppingCartItems(updateCartItem)
     }
   };
+  
 
   const router = createBrowserRouter([
     {
@@ -93,7 +97,9 @@ function App() {
             <CartPage
               itemList={itemList}
               urlEndpoint={urlEndpoint}
-              cartList={shoppingCartItems}
+              shoppingCartItems={shoppingCartItems}
+              total={total}
+              setTotal={setTotal}
             />
           ),
         },

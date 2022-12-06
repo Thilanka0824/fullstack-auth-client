@@ -23,6 +23,7 @@ const NavBar = () => {
         <Link className="nav-bar-item" to="/registration">
           Registration
         </Link>
+        
 
         {/* {auth.userEmail === undefined ? (
         
