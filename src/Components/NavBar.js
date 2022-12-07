@@ -9,7 +9,7 @@ const NavBar = () => {
   const navigate = useNavigate();
   console.log(auth);
   return (
-    <nav>
+    <div className="main-nav-div">
       <div className="nav-bar">
         <Link className="nav-bar-item" to="/">
           Home
@@ -23,13 +23,12 @@ const NavBar = () => {
         <Link className="nav-bar-item" to="/registration">
           Registration
         </Link>
-        
 
         {/* {auth.userEmail === undefined ? (
         
         ) : ("")} */}
 
-        <p className="nav-bar-logout-button">
+        <p className="nav-bar-item">
           {auth.userEmail !== null && auth.userEmail.length > 0 ? (
             <button
               id=""
@@ -46,12 +45,12 @@ const NavBar = () => {
             </Link>
           )}
         </p>
-        <div>
-          <Link className="nav-bar-item-cart" to="/cartpage">
+        <div
+        // className="nav-bar-item" 
+        id="nav-bar-item-cart-icon">
+          <Link to="/cartpage">
             <AiOutlineShoppingCart size={28} />
           </Link>
-
-          
         </div>
 
         <br />
@@ -65,7 +64,7 @@ const NavBar = () => {
             : "please log in"}
         </h3>
       </div>
-    </nav>
+    </div>
   );
 };
 

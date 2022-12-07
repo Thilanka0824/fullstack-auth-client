@@ -6,25 +6,31 @@ const ItemDisplayCard = (props) => {
 
   return (
     <div className="item-display-card">
-      <h2>{item.title}</h2>
-      <p>{item.description}</p>
-      <h6>Rated {item.rating}</h6>
-      <br />
-      <h4>${item.price}</h4>
+      <div>
+        <p className="item-display-card-element">{item.title}</p>
+        <p className="item-display-card-element">{item.description}</p>
+        <p className="item-display-card-element">Rated {item.rating}</p>
+      </div>
+      
+      <div>
+        <p className="item-display-card-element">${item.price}</p>
 
-      {/* <div className="item-display-rating">
+        {/* <div className="item-display-rating">
         <Rating value={item.rating} />{" "}
       </div> */}
-      {/* text={`${item.numReviews} reviews`} */}
-      <button
-        onClick={() => {
-          handleAddCartItem(item);
-        }}
-      >
-        Add to Cart
-      </button>
+        {/* text={`${item.numReviews} reviews`} */}
+        <button
+          className="item-display-card-element"
+          onClick={() => {
+            handleAddCartItem(item);
+          }}
+        >
+          Add
+        </button>
+      </div>
     </div>
   );
 };
+
 
 export default ItemDisplayCard;

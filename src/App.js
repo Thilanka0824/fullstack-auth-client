@@ -19,6 +19,7 @@ function App() {
   const [itemList, setItemList] = useState([]);
   const [shoppingCartItems, setShoppingCartItems] = useState([]);
   const [total, setTotal] = useState(0);
+  const [itemCardTotal, setItemCardTotal] = useState(0);
  
   // const [title, setTitle] = useState('')
   // const [description, setDescription] = useState('')
@@ -80,6 +81,11 @@ function App() {
               itemList={itemList}
               urlEndpoint={urlEndpoint}
               handleAddCartItem={handleAddCartItem}
+              shoppingCartItems={shoppingCartItems}
+              total={total}
+              setTotal={setTotal}
+              itemCardTotal={itemCardTotal}
+              setItemCardTotal={setItemCardTotal}
             />
           ),
         },
@@ -98,8 +104,11 @@ function App() {
               itemList={itemList}
               urlEndpoint={urlEndpoint}
               shoppingCartItems={shoppingCartItems}
+              setShoppingCartItems={setShoppingCartItems}
               total={total}
               setTotal={setTotal}
+              itemCardTotal={itemCardTotal}
+              setItemCardTotal={setItemCardTotal}
             />
           ),
         },

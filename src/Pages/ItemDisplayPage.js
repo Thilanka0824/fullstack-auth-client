@@ -1,14 +1,23 @@
-import React from 'react'
-import ItemDisplayCard from '../Components/ItemDisplayCard';
+import React from "react";
+import ItemDisplayCard from "../Components/ItemDisplayCard";
+import ItemDisplayPageCart from "../Components/ItemDisplayPageCart";
+import CartPage from "./CartPage";
 
-const ItemDisplayPage = (props) => {
-  const {handleAddCartItem} = props
-  
+const ItemDisplayPage = ({
+  handleAddCartItem,
+  itemList,
+  shoppingCartItems,
+  setShoppingCartItems,
+  total,
+  setTotal,
+  itemCardTotal,
+  setItemCardTotal,
+}) => {
   return (
-    <div className="cartpage-main">
-      ItemDisplayPage
-      <div>
-        {props.itemList.map((item, index) => {
+    <div className="item-display-page-container">
+      {}
+      <div className="item-display-page-item-list-div">
+        {itemList.map((item, index) => {
           return (
             <ItemDisplayCard
               key={index}
@@ -18,8 +27,25 @@ const ItemDisplayPage = (props) => {
           );
         })}
       </div>
+      {shoppingCartItems.length > 0 ? (
+        <div className="item-display-page-cart-div">
+          <ItemDisplayPageCart
+            shoppingCartItems={shoppingCartItems}
+            setShoppingCartItems={setShoppingCartItems}
+            total={total}
+            setTotal={setTotal}
+            itemCardTotal={itemCardTotal}
+            setItemCardTotal={setItemCardTotal}
+          />
+          hi
+        </div>
+      ) : (
+        <div className="no-item-in-cart-photo">
+         <h1>Empty Cart</h1>
+        </div>
+      )}
     </div>
   );
-}
+};
 
-export default ItemDisplayPage
+export default ItemDisplayPage;

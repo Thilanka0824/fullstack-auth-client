@@ -1,11 +1,12 @@
-import React, { useEffect } from "react";
-import { useState, createContext } from "react";
+import React from "react";
+import { useState, createContext, useEffect } from "react";
 import CartCard from "../Components/CartCard";
-import Counter from "../Components/Counter";
+
 
 // const NameContext = createContext();
 
-const CartPage = ({ shoppingCartItems, total, setTotal }) => {
+const CartPage = ({ shoppingCartItems, total, setTotal, itemCardTotal, setItemCardTotal }) => {
+  
    
 
   // const onTotalChange = (total) => {
@@ -33,6 +34,8 @@ const CartPage = ({ shoppingCartItems, total, setTotal }) => {
               shoppingCartItems={shoppingCartItems}
               total={total}
               setTotal={setTotal}
+              itemCardTotal={itemCardTotal}
+              setItemCardTotal={setItemCardTotal}
               // onTotalChange={onTotalChange}
             />
           );
