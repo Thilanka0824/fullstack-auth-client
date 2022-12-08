@@ -15,6 +15,8 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 const urlEndpoint = process.env.REACT_APP_URL_ENDPOINT;
 
+const urlEndpointFakeStore = process.env.REACT_APP_URL_FAKE_STORE_ENDPOINT;
+
 function App() {
   const [itemList, setItemList] = useState([]);
   const [shoppingCartItems, setShoppingCartItems] = useState([]);

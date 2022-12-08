@@ -19,7 +19,7 @@ const ItemDisplayPageCart = ({
         return acc;
       }, 0);
       setTotal(totalReducer);
-    }, [itemCardTotal, total]);
+    }, [itemCardTotal, total, shoppingCartItems]);
 
     
 

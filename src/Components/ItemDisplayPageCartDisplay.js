@@ -10,7 +10,7 @@ const ItemDisplayPageCartDisplay = ({
 }) => {
   return <div>ItemDisplayPageCartDisplay
   {/* {shoppingCartItems.price} */}
-  {itemCardTotal}
+  {total}
   </div>;
 };
 

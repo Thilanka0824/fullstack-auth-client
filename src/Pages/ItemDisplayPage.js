@@ -1,7 +1,9 @@
 import React from "react";
+import { AiOutlineImport } from "react-icons/ai";
 import ItemDisplayCard from "../Components/ItemDisplayCard";
 import ItemDisplayPageCart from "../Components/ItemDisplayPageCart";
 import CartPage from "./CartPage";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 const ItemDisplayPage = ({
   handleAddCartItem,
@@ -41,7 +43,9 @@ const ItemDisplayPage = ({
         </div>
       ) : (
         <div className="no-item-in-cart-photo">
-         <h1>Empty Cart</h1>
+          <div></div>
+          <AiOutlineShoppingCart size={50} />
+          <h1>Empty Cart</h1>
         </div>
       )}
     </div>

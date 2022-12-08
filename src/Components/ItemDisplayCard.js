@@ -7,11 +7,11 @@ const ItemDisplayCard = (props) => {
   return (
     <div className="item-display-card">
       <div>
-        <p className="item-display-card-element">{item.title}</p>
+        <h3 className="item-display-card-element">{item.title}</h3>
         <p className="item-display-card-element">{item.description}</p>
         <p className="item-display-card-element">Rated {item.rating}</p>
       </div>
-      
+
       <div>
         <p className="item-display-card-element">${item.price}</p>
 

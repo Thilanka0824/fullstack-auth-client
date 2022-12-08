@@ -5,6 +5,7 @@ import { useState } from "react";
 const CartCard = ({
   item,
   shoppingCartItems,
+  // setShoppingCartItems,
   total,
   setTotal,
   itemCardTotal,
@@ -24,10 +25,11 @@ const CartCard = ({
 
   useEffect(() => {
     setItemCardTotal(item.price * count); //sets the itemCardTotal variable
-  }, [count, item]);
+  }, [itemCardTotal, total, count, item]);
 
   const handleIncrement = () => {
     setCount(count + 1); // sets the count variable
+    // setTotal(count * item.price)
   };
 
   const handleDecrement = () => {

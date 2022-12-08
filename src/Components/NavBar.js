@@ -27,11 +27,17 @@ const NavBar = () => {
         {/* {auth.userEmail === undefined ? (
         
         ) : ("")} */}
-
-        <p className="nav-bar-item">
+        <div
+          // className="nav-bar-item"
+          id="nav-bar-item-cart-icon"
+        >
+          <Link to="/cartpage">
+            <AiOutlineShoppingCart size={28} color={"white"} />
+          </Link>
+        </div>
+        <p id="login-logout-button" className="nav-bar-item">
           {auth.userEmail !== null && auth.userEmail.length > 0 ? (
             <button
-              id=""
               onClick={(e) => {
                 auth.logout();
                 navigate("/login");
@@ -40,20 +46,13 @@ const NavBar = () => {
               Logout
             </button>
           ) : (
-            <Link className="nav-bar-item" to="login">
+            <Link id="login-logout-button" className="nav-bar-item" to="login">
               Login
             </Link>
           )}
         </p>
-        <div
-        // className="nav-bar-item" 
-        id="nav-bar-item-cart-icon">
-          <Link to="/cartpage">
-            <AiOutlineShoppingCart size={28} />
-          </Link>
-        </div>
 
-        <br />
+        {/* <br /> */}
       </div>
 
       <div>

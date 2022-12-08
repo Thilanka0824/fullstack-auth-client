@@ -41,19 +41,29 @@ const ItemDisplayPageCartCard = ({
      
 
   return (
-    <div className="item-display-page-cart-card">
+    <div className="item-display-page-cart-card-container">
       {/* ItemDisplayPageCartCard */}
-      <p>{item.title}</p>
-      <p>{item.price}</p>
-      <p>{itemCardTotal}</p>
-      
-      <p>{item.cartCount} in cart</p>
-      <button onClick={handleIncrement}>
-        +
-      </button>
-      <button onClick={handleDecrement}>
-        -
-      </button>
+      <div className="item-display-page-cart-card-div-left">
+        <h5>{item.title}</h5>
+        <p>price: {item.price}</p>
+        <p>subtotal: {item.price * item.cartCount}</p>
+      </div>
+
+      <div className="item-display-page-cart-card-div-right">
+        <p>{item.cartCount}</p>
+        <button
+          className="item-display-page-cart-card-div-right-button"
+          onClick={handleIncrement}
+        >
+          +
+        </button>
+        <button
+          className="item-display-page-cart-card-div-right-button"
+          onClick={handleDecrement}
+        >
+          -
+        </button>
+      </div>
     </div>
   );
   
