@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import ItemDisplayPageCartCard from "./ItemDisplayPageCartCard";
 import ItemDisplayPageCartDisplay from "./ItemDisplayPageCartDisplay";
 
-
 const ItemDisplayPageCart = ({
   shoppingCartItems,
   setShoppingCartItems,
@@ -11,23 +10,21 @@ const ItemDisplayPageCart = ({
   setTotal,
   itemCardTotal,
   setItemCardTotal,
+  handleAddCartItem,
 }) => {
-    useEffect(() => {
-      const totalReducer = shoppingCartItems.reduce((acc, cur) => {
-        acc += cur.price * cur.cartCount;
+  useEffect(() => {
+    const totalReducer = shoppingCartItems.reduce((acc, cur) => {
+      acc += cur.price * cur.cartCount;
 
-        return acc;
-      }, 0);
-      setTotal(totalReducer);
-    }, [itemCardTotal, total, shoppingCartItems]);
-
-    
+      return acc;
+    }, 0);
+    setTotal(totalReducer);
+  }, [itemCardTotal, total, shoppingCartItems]);
 
   return (
     <div>
       <ItemDisplayPageCartDisplay
         shoppingCartItems={shoppingCartItems}
-        
         total={total}
         setTotal={setTotal}
         itemCardTotal={itemCardTotal}
@@ -46,6 +43,7 @@ const ItemDisplayPageCart = ({
               setTotal={setTotal}
               itemCardTotal={itemCardTotal}
               setItemCardTotal={setItemCardTotal}
+              handleAddCartItem={handleAddCartItem}
             />
           );
         })}

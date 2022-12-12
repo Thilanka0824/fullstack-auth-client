@@ -9,35 +9,29 @@ const ItemDisplayPageCartCard = ({
   setTotal,
   itemCardTotal,
   setItemCardTotal,
+  handleAddCart,
 
 }) => {
     console.log(item.cartCount);
-    const [count, setCount] = useState(item.cartCount);
+    
     // const [itemCardTotal, setItemCardTotal] = useState(0);
 
-    useEffect(() => {
-      const totalReducer = shoppingCartItems.reduce((acc, cur) => {
-        acc += cur.price * cur.cartCount;
+    //why doesn't totalReducer run when the value in itemCardTotal changes
 
-        return acc;
-      }, 0);
-      setTotal(totalReducer);
-    }, [itemCardTotal, total, count]); //why doesn't totalReducer run when the value in itemCardTotal changes
+    // useEffect(() => {
+    //   setItemCardTotal(item.price * count); //sets the itemCardTotal variable
+    // }, [count, item]);
 
-    useEffect(() => {
-      setItemCardTotal(item.price * count); //sets the itemCardTotal variable
-    }, [count, item]);
-
-    const handleIncrement = () => {
-      setCount(count + 1); // sets the count variable
+    // const handleIncrement = () => {
+    //   setCount(count + 1); // sets the count variable
       
-    };
+    // };
 
-    const handleDecrement = () => {
-      if (count > 0) {
-        setCount(count - 1);
-      }
-    };
+    // const handleDecrement = () => {
+    //   if (count > 0) {
+    //     setCount(count - 1);
+    //   }
+    // };
      
 
   return (
@@ -51,7 +45,7 @@ const ItemDisplayPageCartCard = ({
 
       <div className="item-display-page-cart-card-div-right">
         <p>{item.cartCount}</p>
-        <button
+        {/* <button
           className="item-display-page-cart-card-div-right-button"
           onClick={handleIncrement}
         >
@@ -62,7 +56,7 @@ const ItemDisplayPageCartCard = ({
           onClick={handleDecrement}
         >
           -
-        </button>
+        </button> */}
       </div>
     </div>
   );

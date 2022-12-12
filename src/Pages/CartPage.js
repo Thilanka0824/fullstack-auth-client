@@ -40,6 +40,7 @@ const CartPage = ({ shoppingCartItems, total, setTotal, itemCardTotal, setItemCa
             />
           );
         })}
+        {console.log(shoppingCartItems)}
       </div>
     </div>
   );

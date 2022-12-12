@@ -8,9 +8,9 @@ const ItemDisplayPageCartDisplay = ({
   itemCardTotal,
   setItemCardTotal,
 }) => {
-  return <div>ItemDisplayPageCartDisplay
+  return <div>
   {/* {shoppingCartItems.price} */}
-  {total}
+  Cart Total: ${total}
   </div>;
 };
 

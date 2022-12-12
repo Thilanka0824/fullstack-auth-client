@@ -10,6 +10,7 @@ import RegistrationPage from "./Pages/RegistrationPage";
 import CartPage from "./Pages/CartPage";
 import ItemDisplayPage from "./Pages/ItemDisplayPage";
 import ProfilePage from "./Pages/ProfilePage";
+import { CartProvider } from "./Hooks/CartContext";
 
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
@@ -20,47 +21,84 @@ const urlEndpointFakeStore = process.env.REACT_APP_URL_FAKE_STORE_ENDPOINT;
 function App() {
   const [itemList, setItemList] = useState([]);
   const [shoppingCartItems, setShoppingCartItems] = useState([]);
+  // const [count, setCount] = useState(item.cartCount);
+  
   const [total, setTotal] = useState(0);
   const [itemCardTotal, setItemCardTotal] = useState(0);
- 
-  // const [title, setTitle] = useState('')
-  // const [description, setDescription] = useState('')
-  // const [price, setPrice] = useState('')
+  
+
+  // useEffect(() => {
+  //   const fetchItems = async () => {
+  //     const result = await fetch(`${urlEndpoint}/items/all`);
+  //     const fetchedItems = await result.json();
+  //     setItemList(fetchedItems.item);
+  //     console.log(fetchedItems);
+  //   };
+  //   fetchItems();
+  // }, []);
+
+  useEffect(()=>{
+    const fetchProducts = async ()=>{
+      const result = await fetch("https://fakestoreapi.com/products");
+      const fetchedProducts = await result.json();
+      setItemList(fetchedProducts)
+      // console.log(fetchedProducts)
+
+    }
+    fetchProducts()
+  }, [])
 
   useEffect(() => {
-    const fetchItems = async () => {
-      const result = await fetch(`${urlEndpoint}/items/all`);
-      const fetchedItems = await result.json();
-      setItemList(fetchedItems.item);
-      console.log(fetchedItems);
-    };
-    fetchItems();
-  }, []);
+    const totalReducer = shoppingCartItems.reduce((acc, cur) => {
+      acc += cur.price * cur.cartCount;
+
+      return acc;
+    }, 0);
+    setTotal(totalReducer);
+  }, [itemCardTotal, total]); 
 
   const handleAddCartItem = (item) => {
     //item is the object that will be created.
     const foundIndex = shoppingCartItems.findIndex((currentItem) => {
-      console.log(currentItem)
-      return currentItem._id === item._id; 
+      console.log("currentItem",currentItem);
+      return currentItem.id === item.id;
     });
 
-    console.log(foundIndex)
-    if (foundIndex === -1) { //if item is not in shoppingCartItems
+    console.log(foundIndex);
+    if (foundIndex === -1) {
+      //if item is not in shoppingCartItems
       setShoppingCartItems([...shoppingCartItems, { ...item, cartCount: 1 }]);
     } else {
-      const updateCartItem = shoppingCartItems.map((cartItem)=>{
-        if(cartItem._id === item._id){ //if cartItem is the same as item.id
-          cartItem.cartCount++
-          return cartItem
+      const updateCartItem = shoppingCartItems.map((cartItem) => {
+        if (cartItem.id === item.id) {
+          //if cartItem is the same as item.id
+          cartItem.cartCount++;
+          return cartItem;
         } else {
-          return cartItem
+          return cartItem;
         }
-
-      })
-      setShoppingCartItems(updateCartItem)
+      });
+      setShoppingCartItems(updateCartItem);
     }
   };
-  
+
+  const handleRemoveCartItem = (item) => {
+    //item is the object that will be created.
+    
+    const updateCartItem = shoppingCartItems.map((cartItem) => {
+      if (cartItem.id === item.id) {
+        //if cartItem is the same as item.id
+        if(cartItem.cartCount > 0){
+        cartItem.cartCount--;
+        return cartItem;
+      } else {
+        return cartItem;
+      }
+    }
+    });
+    setShoppingCartItems(updateCartItem);
+
+  }
 
   const router = createBrowserRouter([
     {
@@ -83,6 +121,7 @@ function App() {
               itemList={itemList}
               urlEndpoint={urlEndpoint}
               handleAddCartItem={handleAddCartItem}
+              handleRemoveCartItem={handleRemoveCartItem}
               shoppingCartItems={shoppingCartItems}
               total={total}
               setTotal={setTotal}
@@ -111,6 +150,7 @@ function App() {
               setTotal={setTotal}
               itemCardTotal={itemCardTotal}
               setItemCardTotal={setItemCardTotal}
+              handleAddCartItem={handleAddCartItem}
             />
           ),
         },
@@ -121,9 +161,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <RouterProvider router={router} />
+        {/* <CartProvider> */}
+          <RouterProvider router={router} />
 
-        {/* All router objects are passed to this component to render your app and enable the rest of the APIs. */}
+          {/* All router objects are passed to this component to render your app and enable the rest of the APIs. */}
+        {/* </CartProvider> */}
       </header>
     </div>
   );

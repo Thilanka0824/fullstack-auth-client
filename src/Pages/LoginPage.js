@@ -15,12 +15,18 @@ const LoginPage = () => {
     <div className="login-main">
       {/* LoginPage */}
       <h1>Login</h1>
+      <img
+        className="homepage-image"
+        src="https://cdn.pixabay.com/photo/2013/07/12/14/10/padlock-147913_960_720.png"
+        alt=""
+      />
+
       <div>
         <h3>{loginMessage}</h3>
         {/* <label>Email: </label> */}
-        <br/>
-        <br/>
-        <br/>
+        <br />
+        <br />
+        <br />
         <input
           value={email}
           type="text"
@@ -32,7 +38,7 @@ const LoginPage = () => {
         ></input>
         {/* <br /> */}
         {/* <label>Password: </label> */}
-        <br/>
+        <br />
         <input
           value={password}
           type="password"
@@ -44,8 +50,9 @@ const LoginPage = () => {
         ></input>
         <br />
         <br />
-        <button className="sign-up-button"
-        // value={isLoggedIn}
+        <button
+          className="sign-up-button"
+          // value={isLoggedIn}
           onClick={async () => {
             const loginResult = await auth.login(email, password);
 
@@ -64,7 +71,6 @@ const LoginPage = () => {
         >
           Login
         </button>
-       
       </div>
     </div>
   );

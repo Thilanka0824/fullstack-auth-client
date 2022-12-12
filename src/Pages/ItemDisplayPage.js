@@ -1,4 +1,5 @@
 import React from "react";
+import { useCart } from "../Hooks/CartContext";
 import { AiOutlineImport } from "react-icons/ai";
 import ItemDisplayCard from "../Components/ItemDisplayCard";
 import ItemDisplayPageCart from "../Components/ItemDisplayPageCart";
@@ -7,6 +8,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 
 const ItemDisplayPage = ({
   handleAddCartItem,
+  handleRemoveCartItem,
   itemList,
   shoppingCartItems,
   setShoppingCartItems,
@@ -15,9 +17,11 @@ const ItemDisplayPage = ({
   itemCardTotal,
   setItemCardTotal,
 }) => {
+// const Cart = useCart()
+
   return (
     <div className="item-display-page-container">
-      {}
+      {console.log(itemList)}
       <div className="item-display-page-item-list-div">
         {itemList.map((item, index) => {
           return (
@@ -25,6 +29,8 @@ const ItemDisplayPage = ({
               key={index}
               item={item}
               handleAddCartItem={handleAddCartItem}
+              handleRemoveCartItem={handleRemoveCartItem}
+              
             />
           );
         })}

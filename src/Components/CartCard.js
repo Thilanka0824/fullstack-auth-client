@@ -6,6 +6,7 @@ const CartCard = ({
   item,
   shoppingCartItems,
   // setShoppingCartItems,
+  handleAddCartItem,
   total,
   setTotal,
   itemCardTotal,
@@ -29,28 +30,30 @@ const CartCard = ({
 
   const handleIncrement = () => {
     setCount(count + 1); // sets the count variable
+    handleAddCartItem(item);
     // setTotal(count * item.price)
   };
 
   const handleDecrement = () => {
     if (count > 0) {
       setCount(count - 1);
+
     }
   };
 
   return (
     <div className="cart-item-display-card">
       <div className="cart-card-inner-div">
-        <h2>{item.title}</h2>
+        <h2>{item.category}</h2>
         {/* <p>{item.description}</p> */}
         {/* <h6>Rated {item.rating}</h6> */}
-        <br />
+        {/* <br /> */}
 
         <h4>Price: ${item.price}</h4>
       </div>
       <div className="cart-card-inner-div">
         <h2>{count}</h2>
-        <button className="cart-count-button" onClick={handleIncrement}>
+        <button className="cart-count-button" onClick={handleAddCartItem}>
           +
         </button>
         <button className="cart-count-button" onClick={handleDecrement}>
