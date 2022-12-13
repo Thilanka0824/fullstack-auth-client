@@ -360,7 +360,7 @@ a:link {
 
 .item-display-page-cart-div {
   /* border: 2px solid rgb(242, 8, 8); */
-  background: linear-gradient(to right, #190fe8, #8616e1);
+  /* background: linear-gradient(to right, #190fe8, #8616e1); */
   
   width: 30%;
 }
@@ -422,7 +422,7 @@ a:link {
   justify-content: space-between;
   align-items: center;
   /* border: 2px solid rgb(0, 0, 0); */
-  background-color: #ffffdc;
+  background-color: #f9f9f9;
   /* background: linear-gradient(to right, #f9ecf9, #8616e1); */
   border-radius: 20px;
   margin: 7px;

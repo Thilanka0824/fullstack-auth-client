@@ -15,18 +15,18 @@ const CartCard = ({
   const [count, setCount] = useState(item.cartCount);
   // const [itemCardTotal, setItemCardTotal] = useState(0);
 
-  useEffect(() => {
-    const totalReducer = shoppingCartItems.reduce((acc, cur) => {
-      acc += cur.price * cur.cartCount;
+  // useEffect(() => {
+  //   const totalReducer = shoppingCartItems.reduce((acc, cur) => {
+  //     acc += cur.price * cur.cartCount;
 
-      return acc;
-    }, 0);
-    setTotal(totalReducer);
-  }, [itemCardTotal, total, count]); //why doesn't totalReducer run when the value in itemCardTotal changes
+  //     return acc;
+  //   }, 0);
+  //   setTotal(totalReducer);
+  // }, [itemCardTotal, total, count]); //why doesn't totalReducer run when the value in itemCardTotal changes
 
-  useEffect(() => {
-    setItemCardTotal(item.price * count); //sets the itemCardTotal variable
-  }, [itemCardTotal, total, count, item]);
+  // useEffect(() => {
+  //   setItemCardTotal(item.price * count); //sets the itemCardTotal variable
+  // }, [itemCardTotal, total, count, item]);
 
   const handleIncrement = () => {
     setCount(count + 1); // sets the count variable
@@ -44,10 +44,10 @@ const CartCard = ({
   return (
     <div className="cart-item-display-card">
       <div className="cart-card-inner-div">
-        <h2>{item.category}</h2>
-        {/* <p>{item.description}</p> */}
+        <h2>{item.title}</h2>
+        <p>{item.description}</p>
         {/* <h6>Rated {item.rating}</h6> */}
-        {/* <br /> */}
+        <br />
 
         <h4>Price: ${item.price}</h4>
       </div>

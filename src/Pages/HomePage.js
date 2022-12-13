@@ -8,6 +8,7 @@ const HomePage = () => {
 
   const auth = useAuth();
 
+
   useEffect(() => {
     const fetchMessage = async () => {
       const response = await fetch(`${urlEndpoint}/users/message`, {
@@ -26,7 +27,7 @@ const HomePage = () => {
   return (
     <div className="homepage-main">
       
-      <h1>Auth Page</h1>
+      <h1>Welcome {auth.username}!</h1>
       <img
         className="homepage-image"
         src="https://cdn.pixabay.com/photo/2013/07/12/14/10/padlock-147913_960_720.png"

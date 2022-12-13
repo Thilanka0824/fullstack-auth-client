@@ -1,38 +1,12 @@
 import React from 'react'
-import { useState, useEffect } from 'react';
+import { useCart } from '../Hooks/CartContext';
 
 const ItemDisplayPageCartCard = ({
-  item,  
-  shoppingCartItems,
-  setShoppingCartItems,
-  total,
-  setTotal,
-  itemCardTotal,
-  setItemCardTotal,
-  handleAddCart,
+  item
 
 }) => {
-    console.log(item.cartCount);
+  const Cart = useCart()
     
-    // const [itemCardTotal, setItemCardTotal] = useState(0);
-
-    //why doesn't totalReducer run when the value in itemCardTotal changes
-
-    // useEffect(() => {
-    //   setItemCardTotal(item.price * count); //sets the itemCardTotal variable
-    // }, [count, item]);
-
-    // const handleIncrement = () => {
-    //   setCount(count + 1); // sets the count variable
-      
-    // };
-
-    // const handleDecrement = () => {
-    //   if (count > 0) {
-    //     setCount(count - 1);
-    //   }
-    // };
-     
 
   return (
     <div className="item-display-page-cart-card-container">
@@ -41,22 +15,13 @@ const ItemDisplayPageCartCard = ({
         <h5>{item.title}</h5>
         <p>price: {item.price}</p>
         <p>subtotal: {item.price * item.cartCount}</p>
+        {/* <h3>Count: {count}</h3> */}
       </div>
 
       <div className="item-display-page-cart-card-div-right">
+        <p>item count</p>
         <p>{item.cartCount}</p>
-        {/* <button
-          className="item-display-page-cart-card-div-right-button"
-          onClick={handleIncrement}
-        >
-          +
-        </button>
-        <button
-          className="item-display-page-cart-card-div-right-button"
-          onClick={handleDecrement}
-        >
-          -
-        </button> */}
+        
       </div>
     </div>
   );

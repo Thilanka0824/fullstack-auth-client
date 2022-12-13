@@ -15,8 +15,6 @@ const NavBar = () => {
   const auth = useAuth();
   // const Cart = useCart();
   // const { itemee } = useContext(CartContext);
-  // const 
-  // console.log(itemee);
   const navigate = useNavigate();
   console.log(auth);
 

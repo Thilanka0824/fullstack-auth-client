@@ -35,8 +35,8 @@ export const AuthProvider = ({ children }) => {
 
   // call this function when you want to authenticate the user
   const login = async (email, password) => {
-    console.log(email);
-    console.log(password);
+    // console.log(email);
+    // console.log(password);
     setIsAuthLoading(true);
     const loginResult = await loginUser(email, password);
     if (loginResult.success) {

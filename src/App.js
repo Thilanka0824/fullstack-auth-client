@@ -19,12 +19,11 @@ const urlEndpoint = process.env.REACT_APP_URL_ENDPOINT;
 const urlEndpointFakeStore = process.env.REACT_APP_URL_FAKE_STORE_ENDPOINT;
 
 function App() {
-  const [itemList, setItemList] = useState([]);
-  const [shoppingCartItems, setShoppingCartItems] = useState([]);
-  // const [count, setCount] = useState(item.cartCount);
-  
-  const [total, setTotal] = useState(0);
-  const [itemCardTotal, setItemCardTotal] = useState(0);
+  // const [itemList, setItemList] = useState([]);
+  // const [shoppingCartItems, setShoppingCartItems] = useState([]);
+  // const [count, setCount] = useState(0);
+  // const [total, setTotal] = useState(0);
+  // const [itemCardTotal, setItemCardTotal] = useState(0);
   
 
   // useEffect(() => {
@@ -32,73 +31,85 @@ function App() {
   //     const result = await fetch(`${urlEndpoint}/items/all`);
   //     const fetchedItems = await result.json();
   //     setItemList(fetchedItems.item);
-  //     console.log(fetchedItems);
+  //     // console.log(fetchedItems);
   //   };
   //   fetchItems();
   // }, []);
 
-  useEffect(()=>{
-    const fetchProducts = async ()=>{
-      const result = await fetch("https://fakestoreapi.com/products");
-      const fetchedProducts = await result.json();
-      setItemList(fetchedProducts)
-      // console.log(fetchedProducts)
+  // // useEffect(()=>{
+  // //   const fetchProducts = async ()=>{
+  // //     const result = await fetch("https://fakestoreapi.com/products");
+  // //     const fetchedProducts = await result.json();
+  // //     setItemList(fetchedProducts)
+  // //     // console.log(fetchedProducts)
 
-    }
-    fetchProducts()
-  }, [])
+  // //   }
+  // //   fetchProducts()
+  // // }, [])
 
-  useEffect(() => {
-    const totalReducer = shoppingCartItems.reduce((acc, cur) => {
-      acc += cur.price * cur.cartCount;
+  // useEffect(() => {
+  //   const totalReducer = shoppingCartItems.reduce((acc, cur) => {
+  //     acc += cur.price * cur.cartCount;
 
-      return acc;
-    }, 0);
-    setTotal(totalReducer);
-  }, [itemCardTotal, total]); 
+  //     return acc;
+  //   }, 0);
+  //   setTotal(totalReducer);
+  // }, [itemCardTotal, total]); 
 
-  const handleAddCartItem = (item) => {
-    //item is the object that will be created.
-    const foundIndex = shoppingCartItems.findIndex((currentItem) => {
-      console.log("currentItem",currentItem);
-      return currentItem.id === item.id;
-    });
+  // const handleAddCartItem = (item) => {
+  //   //item is the object that will be created.
+  //   const foundIndex = shoppingCartItems.findIndex((currentItem) => {
+  //     // console.log(shoppingCartItems);
+  //     return currentItem._id === item._id;
+  //   });
 
-    console.log(foundIndex);
-    if (foundIndex === -1) {
-      //if item is not in shoppingCartItems
-      setShoppingCartItems([...shoppingCartItems, { ...item, cartCount: 1 }]);
-    } else {
-      const updateCartItem = shoppingCartItems.map((cartItem) => {
-        if (cartItem.id === item.id) {
-          //if cartItem is the same as item.id
-          cartItem.cartCount++;
-          return cartItem;
-        } else {
-          return cartItem;
-        }
-      });
-      setShoppingCartItems(updateCartItem);
-    }
-  };
+  //   // console.log(foundIndex);
+  //   if (foundIndex === -1) {
+  //     //if item is not in shoppingCartItems
+  //     setShoppingCartItems([...shoppingCartItems, { ...item, cartCount: 1 }]);
+  //     // setCount(item.cartCount)
+  //   } else {
+  //     const updateCartItem = shoppingCartItems.map((cartItem) => {
+  //       if (cartItem._id === item._id) {
+  //         //if cartItem is the same as item.id
+  //         cartItem.cartCount++;
+  //         return cartItem;
+  //       } else {
+  //         return cartItem;
+  //       }
+  //     });
+  //     setShoppingCartItems(updateCartItem);
+      
+  //   }
+  // };
 
-  const handleRemoveCartItem = (item) => {
-    //item is the object that will be created.
+  // const handleRemoveCartItem = (item) => {
+  //   //item is the object that will be created.
+  //   // const foundIndex = shoppingCartItems.findIndex((currentItem) => {
+  //   //   // console.log(shoppingCartItems);
+  //   //   return currentItem._id === item._id;
+  //   // });
     
-    const updateCartItem = shoppingCartItems.map((cartItem) => {
-      if (cartItem.id === item.id) {
-        //if cartItem is the same as item.id
-        if(cartItem.cartCount > 0){
-        cartItem.cartCount--;
-        return cartItem;
-      } else {
-        return cartItem;
-      }
-    }
-    });
-    setShoppingCartItems(updateCartItem);
-
-  }
+    
+  //   const updateCartItem = shoppingCartItems.map((cartItem) => {
+  //    console.log(cartItem)
+  //     if (cartItem._id === item._id) {
+    
+  //       if(cartItem.cartCount > 1){
+  //       cartItem.cartCount--;
+  //       return cartItem;
+  //     } 
+  //     else  {
+  //       return cartItem;
+  //     }
+  //   } else {
+  //     return cartItem
+  //   }
+  //   });
+  //   setShoppingCartItems(updateCartItem);
+  //   console.log(updateCartItem)
+  // }
+  // console.log(shoppingCartItems);
 
   const router = createBrowserRouter([
     {
@@ -118,15 +129,16 @@ function App() {
           path: "/display",
           element: (
             <ItemDisplayPage
-              itemList={itemList}
-              urlEndpoint={urlEndpoint}
-              handleAddCartItem={handleAddCartItem}
-              handleRemoveCartItem={handleRemoveCartItem}
-              shoppingCartItems={shoppingCartItems}
-              total={total}
-              setTotal={setTotal}
-              itemCardTotal={itemCardTotal}
-              setItemCardTotal={setItemCardTotal}
+              // itemList={itemList}
+              // urlEndpoint={urlEndpoint}
+              // handleAddCartItem={handleAddCartItem}
+              // handleRemoveCartItem={handleRemoveCartItem}
+              // shoppingCartItems={shoppingCartItems}
+              // total={total}
+              // setTotal={setTotal}
+              // itemCardTotal={itemCardTotal}
+              // setItemCardTotal={setItemCardTotal}
+              // count={count}
             />
           ),
         },
@@ -141,17 +153,7 @@ function App() {
         {
           path: "/cartpage",
           element: (
-            <CartPage
-              itemList={itemList}
-              urlEndpoint={urlEndpoint}
-              shoppingCartItems={shoppingCartItems}
-              setShoppingCartItems={setShoppingCartItems}
-              total={total}
-              setTotal={setTotal}
-              itemCardTotal={itemCardTotal}
-              setItemCardTotal={setItemCardTotal}
-              handleAddCartItem={handleAddCartItem}
-            />
+            <CartPage />
           ),
         },
       ],
@@ -161,11 +163,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {/* <CartProvider> */}
           <RouterProvider router={router} />
-
           {/* All router objects are passed to this component to render your app and enable the rest of the APIs. */}
-        {/* </CartProvider> */}
       </header>
     </div>
   );
